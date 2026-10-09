@@ -1,0 +1,4 @@
+-- YardWise Database Schema
+-- PostgreSQL / Supabase
+--
+-- Database tables and relationships will be defined here.
