@@ -67,7 +67,7 @@ Workflow:
 6. Resolve any merge conflicts.
 7. Complete the Definition of Done.
 8. Merge the Pull Request.
-9. Record accepted work in `WORKFLOW.md`.
+9. Record accepted work in `docs/WORKFLOW.md`.
 
 ## Issues and Planning
 
@@ -161,7 +161,7 @@ For repository work, a contribution is accepted when:
 4. The work is merged into `main`.
 
 For work such as research, design, documentation, or testing, a contribution is accepted when the agreed
-deliverable is completed, reviewed by the task owner or team, and recorded in a completed GitHub Issue or docs/WORKFLOW.md.
+deliverable is completed, reviewed by the task owner or team, and recorded in a completed GitHub Issue or `docs/WORKFLOW.md`.
 
 ### Making the Norm Workable
 
@@ -174,7 +174,7 @@ The team will:
 - Aim to respond to review requests within three working days, or notify the team if delayed.
 - Communicate any issues that arise.
 
-Accepted work should be listed in `WORKFLOW.md` with the sprint, task or Issue, Pull Request, contribution, and status.
+Accepted work should be listed in `docs/WORKFLOW.md` with the sprint, task or Issue, Pull Request, contribution, and status.
 
 ## Pull Requests and Review
 
@@ -235,7 +235,7 @@ YardWise will use version numbers such as v1.0.0 (major.minor.patch).
 (major: breaking API changes, minor: backward-compatible functionality, patch: backward-compatible bug fixes)
 - Confirm tests, linting, and required checks pass
 - Create a Git tag for the release (example: v1.2.0)
-- Record changes in WORKFLOW.md
+- Record changes in `CHANGELOG.md`
 - Build and package the mobile app using Expo when ready
 - Publish the release through GitHub Releases. App store publishing will be added if needed
 - If a release fails, return to the last working version and document the issue.
