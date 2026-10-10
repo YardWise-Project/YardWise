@@ -45,8 +45,10 @@ YardWise/
 ├── database/        # Database schema and migrations
 ├── docs/            # Project documentation and workflows
 ├── mobile/          # React Native + Expo application
+├── .dockerignore
 ├── .env.example
 ├── .gitignore
+├── CHANGELOG.md
 ├── CONTRIBUTING.md
 |── README.md
 ├── docker-compose.yml
