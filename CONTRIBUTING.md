@@ -110,6 +110,8 @@ Backend formatting and linting tools will be selected when the FastAPI environme
 Local linting and testing commands will be added once environments are configured. 
 The team plans to document and verify these commands by Sprint 3.
 
+Dristi will document the mobile linting commands, and Savhanna will document the testing commands by Sprint 3.
+
 ## Testing
 
 Testing will include, where applicable:
@@ -140,6 +142,8 @@ All team members share responsibility for meeting the Definition of Done.
 ## Contribution Norm
 
  Every team member must complete at least one piece of accepted work per sprint. Accepted work must meet the task requirements and be recorded in GitHub or the team's workflow log.
+ 
+ Each member's accepted work will also be recorded in the course sprint notes using the required contribution lines.
 
 ### Where Work Is Recorded
 
