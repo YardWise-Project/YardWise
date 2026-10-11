@@ -1,22 +1,28 @@
-# Placeholder if Agents.md is needed, but not planning to have Agents within the project for now. Will update if required.
+# AGENTS.md
 
-# Agents.md sample file to YardWise
+## Project overview
+This is a web application built with TypeScript.
 
-## Dev environment tips
-- Use `pnpm dlx turbo run where <project_name>` to jump to a package instead of scanning with `ls`.
-- Run `pnpm install --filter <project_name>` to add the package to your workspace so Vite, ESLint, and TypeScript can see it.
-- Use `pnpm create vite@latest <project_name> -- --template react-ts` to spin up a new React + Vite package with TypeScript checks ready.
-- Check the name field inside each package's package.json to confirm the right name—skip the top-level one.
+## Setup commands
+- Install dependencies: `pnpm install`
+- Start development server: `pnpm dev`
+- Run tests: `pnpm test`
+- Build project: `pnpm build`
 
-## Testing instructions
-- Find the CI plan in the .github/workflows folder.
-- Run `pnpm turbo run test --filter <project_name>` to run every check defined for that package.
-- From the package root you can just call `pnpm test`. The commit should pass all tests before you merge.
-- To focus on one step, add the Vitest pattern: `pnpm vitest run -t "<test name>"`.
-- Fix any test or type errors until the whole suite is green.
-- After moving files or changing imports, run `pnpm lint --filter <project_name>` to be sure ESLint and TypeScript rules still pass.
-- Add or update tests for the code you change, even if nobody asked.
+## Code style
+- Use TypeScript strict mode
+- Use single quotes
+- Do not use semicolons
+- Prefer functional programming patterns
+- Keep components small and reusable
 
-## PR instructions
-- Title format: [<Yardise>] <Yardwise>
-- Always run `pnpm lint` and `pnpm test` before committing.
+## Testing
+- Run tests before submitting changes
+- Add tests for new features
+- Fix failing tests before finishing
+
+## Rules for AI agents
+- Do not modify unrelated files
+- Follow existing project conventions
+- Avoid unnecessary dependencies
+- Explain significant code changes
