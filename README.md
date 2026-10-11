@@ -48,6 +48,7 @@ YardWise/
 ├── .dockerignore
 ├── .env.example
 ├── .gitignore
+├── AGENTS.md
 ├── CHANGELOG.md
 ├── CONTRIBUTING.md
 |── README.md
