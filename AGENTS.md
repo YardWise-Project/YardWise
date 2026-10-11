@@ -1,4 +1,6 @@
-# Agents.md file to YardWise
+# Placeholder if Agents.md is needed, but not planning to have Agents within the project for now. Will update if required.
+
+# Agents.md sample file to YardWise
 
 ## Dev environment tips
 - Use `pnpm dlx turbo run where <project_name>` to jump to a package instead of scanning with `ls`.
@@ -16,5 +18,5 @@
 - Add or update tests for the code you change, even if nobody asked.
 
 ## PR instructions
-- Title format: [<project_name>] <Title>
+- Title format: [<Yardise>] <Yardwise>
 - Always run `pnpm lint` and `pnpm test` before committing.
