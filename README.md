@@ -2,13 +2,7 @@
 
 YardWise is a landscaping and gardening app that helps homeowners and renters plan, organize, and maintain outdoor projects.
 
-# 🌱 YardWise
-
 ## Project Overview
-
-YardWise is a team capstone project focused on developing a web application to help users manage their yards, gardens, plants, and landscaping projects.
-
-The application is intended to support property management, plant information, landscaping planning, budgets, and maintenance reminders.
 
 **Current Status:** Initial project setup / Development skeleton
 
