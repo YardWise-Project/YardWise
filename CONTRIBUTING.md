@@ -14,33 +14,62 @@ If the group isn't addressing disagreements or concerns properly, follow the syl
 
 ### Prerequisites
 
-YardWise uses:
-
 - Git and GitHub
-- Node.js
-- React Native / Expo
-- TypeScript
-- Python / FastAPI
+- Node.js and npm
+- React, TypeScript, and Vite (web frontend)
+- Node.js, Express, and TypeScript (backend)
 - PostgreSQL / Supabase
-- Docker
+- React Native / Expo 
+- Docker 
 
-### Environment Setup
+### Clone and Set Up the Repository
 
-Clone the repository
+Clone the repository:
 
-Use `.env.example` as the reference for environment variables.
+```bash
+git clone https://github.com/YardWise-Project/YardWise.git
+cd YardWise
+```
 
-Create your own local `.env` file for development. Do not commit `.env`, passwords, API keys, tokens, or secrets.
+**Frontend setup:**
 
-### Running Locally
+```bash
+cd web
+npm install
+```
 
-Mobile (inside `mobile/`):
-- `npm install` — install dependencies
-- `npx expo start` — start the mobile app
+Create `web/.env.local` using the frontend variables documented in `.env.example`.
 
-Backend (inside `backend/`):
-- `pip install -r requirements.txt` — install dependencies
+Then start the frontend:
 
+```bash
+npm run dev
+```
+
+**Backend setup:**
+
+Open a second terminal in the repository root:
+
+```bash
+cd backend
+npm install
+```
+
+Create `backend/.env` using the backend variables documented in `.env.example`.
+
+Then start the backend:
+
+```bash
+npm run dev
+```
+
+The frontend runs at the URL displayed by Vite, typically `http://localhost:5173` or `http://localhost:5174`.
+
+The backend runs at `http://localhost:8000`.
+
+Verify the backend at `http://localhost:8000/api/health`.
+
+Team members must obtain the Supabase project URL and publishable key through the team's approved sharing method.
 ## Branch and Workflow
 
 The default branch is `main`. Development should be on a separate branch.
@@ -105,7 +134,9 @@ feat: add search functionality (#14)
 
 Mobile code will use TypeScript with ESLint and Prettier.
 
-Backend formatting and linting tools will be selected when the FastAPI environment is configured.
+Backend formatting and linting tools will be selected for the Node.js, Express, and TypeScript backend.
+
+Until automated CI checks are implemented, contributors will run `npm run build` inside `web/` and `npx tsc --noEmit` inside `backend/` for applicable changes.
 
 Local linting and testing commands will be added once environments are configured. 
 The team plans to document and verify these commands by Sprint 3.
@@ -133,10 +164,16 @@ Before merging into `main`, all applicable checks must pass.
 | Lint checks pass | GitHub Actions lint job | 2–3 | Dristi |
 | No secrets or critical security issues | Security scanning CI job | 4 | James |
 | Build succeeds | GitHub Actions build job | 3 | Anthony |
+| Teammate PR approval | GitHub PR review; branch protection planned | TBD | James |
 
 CI jobs are planned. They will be added to `.github/workflows/`. Once created, this document will identify their actual filenames and job names.
 
-Until then, contributors will manually verify applicable checks. Teammate approval is not required, but the PR author must check correctness before merging.
+Until CI checks are implemented, contributors must manually verify applicable checks before merging.
+
+Every Pull Request must receive approval from at least one teammate other than the author before merging into `main`.
+
+James will coordinate code review, and approvals will be documented in GitHub Pull Requests until branch protection is configured.
+
 All team members share responsibility for meeting the Definition of Done.
 
 ## Contribution Norm
@@ -188,7 +225,9 @@ Pull Requests should include:
 - A short summary of the change
 - The related issue when applicable
 
-Formal teammate approval is not required for every Pull Request. However, changes must meet the Definition of Done before merging.
+Every Pull Request must receive approval from at least one teammate other than the author before merging into `main`.
+
+All applicable Definition of Done checks must pass before merging.
 
 Team members should respond to requested reviews or feedback within three working days or notify the team if needed.
 
