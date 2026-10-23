@@ -158,11 +158,13 @@ Before merging into `main`, all applicable checks must pass.
 |---|---|---|---|
 | Tests pass | GitHub Actions test job | 2–3 | Savhanna |
 | Code reviewed for correctness | PR checklist | 1 | James |
-| Documentation updated | PR checklist | 1 | Savhanna |
+| Documentation updated | PR checklist | 1 | Anthony |
 | Lint checks pass | GitHub Actions lint job | 2–3 | Dristi |
 | No secrets or critical security issues | Security scanning CI job | 4 | James |
 | Build succeeds | GitHub Actions build job | 3 | Anthony |
-| Teammate PR approval | GitHub PR review; branch protection planned | 1 | Anthony |
+| Teammate PR approval | GitHub PR review; branch protection planned | 1 | Dristi |
+| Sprint tasks tracked and assigned | GitHub project management board | 1 | Dristi |
+| Repository structure and setup documented | Manual repository and documentation review | 1 | Savhanna |
 
 CI jobs are planned. They will be added to `.github/workflows/`. Once created, this document will identify their actual filenames and job names.
 
