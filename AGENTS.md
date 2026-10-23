@@ -8,9 +8,9 @@ This file provides guidelines for AI tools working in our repository.
 
 ## Approved AI Tools
 
-ChatGPT
-Claude
-Gemini
+- ChatGPT
+- Claude
+- Gemini
 
 ## Project Guidelines
 
