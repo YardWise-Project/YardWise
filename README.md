@@ -37,7 +37,6 @@ YardWise/
 │
 ├── docs/
 │
-├── mobile/
 │
 ├── web/
 │   ├── src/
