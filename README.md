@@ -17,7 +17,6 @@ The frontend, backend, and Supabase configuration have been initialized. Applica
 | Database | Supabase PostgreSQL |
 | Authentication | Supabase Auth (planned) |
 | File Storage | Supabase Storage (planned) |
-| Mobile Application | React Native, Expo (planned) |
 | Version Control | Git and GitHub |
 
 ## Project Structure
