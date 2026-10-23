@@ -19,8 +19,6 @@ If the group isn't addressing disagreements or concerns properly, follow the syl
 - React, TypeScript, and Vite (web frontend)
 - Node.js, Express, and TypeScript (backend)
 - PostgreSQL / Supabase
-- React Native / Expo 
-- Docker 
 
 ### Clone and Set Up the Repository
 
@@ -132,7 +130,7 @@ feat: add search functionality (#14)
 
 ## Code Style, Linting & Formatting
 
-Mobile code will use TypeScript with ESLint and Prettier.
+Web frontend code uses TypeScript and follows the project's existing coding conventions.
 
 Backend formatting and linting tools will be selected for the Node.js, Express, and TypeScript backend.
 
@@ -141,13 +139,13 @@ Until automated CI checks are implemented, contributors will run `npm run build`
 Local linting and testing commands will be added once environments are configured. 
 The team plans to document and verify these commands by Sprint 3.
 
-Dristi will document the mobile linting commands, and Savhanna will document the testing commands by Sprint 3.
+Dristi will document the web frontend linting commands, and Savhanna will document the testing commands by Sprint 3.
 
 ## Testing
 
 Testing will include, where applicable:
 
-- Mobile tests
+- Web frontend tests
 - Backend API tests
 - Database and integration tests
 - Manual feature testing
@@ -160,19 +158,17 @@ Before merging into `main`, all applicable checks must pass.
 |---|---|---|---|
 | Tests pass | GitHub Actions test job | 2–3 | Savhanna |
 | Code reviewed for correctness | PR checklist | 1 | James |
-| Documentation updated | PR checklist | 1 | Anthony |
+| Documentation updated | PR checklist | 1 | Savhanna |
 | Lint checks pass | GitHub Actions lint job | 2–3 | Dristi |
 | No secrets or critical security issues | Security scanning CI job | 4 | James |
 | Build succeeds | GitHub Actions build job | 3 | Anthony |
-| Teammate PR approval | GitHub PR review; branch protection planned | TBD | James |
+| Teammate PR approval | GitHub PR review; branch protection planned | 1 | Anthony |
 
 CI jobs are planned. They will be added to `.github/workflows/`. Once created, this document will identify their actual filenames and job names.
 
 Until CI checks are implemented, contributors must manually verify applicable checks before merging.
 
 Every Pull Request must receive approval from at least one teammate other than the author before merging into `main`.
-
-James will coordinate code review, and approvals will be documented in GitHub Pull Requests until branch protection is configured.
 
 All team members share responsibility for meeting the Definition of Done.
 
@@ -212,7 +208,7 @@ The team will:
 - Give tasks to owners.
 - Pair on difficult work when useful.
 - Record each person's contribution.
-- Aim to respond to review requests within three working days, or notify the team if delayed.
+- Aim to review pull requests within 48 hours, or notify the team if delayed.
 - Communicate any issues that arise.
 
 Accepted work should be listed in `docs/WORKFLOW.md` with the sprint, task or Issue, Pull Request, contribution, and status.
@@ -229,7 +225,7 @@ Every Pull Request must receive approval from at least one teammate other than t
 
 All applicable Definition of Done checks must pass before merging.
 
-Team members should respond to requested reviews or feedback within three working days or notify the team if needed.
+Team members should review pull requests within 48 hours or notify the team if additional time is needed. The team will follow up on pull requests that remain unreviewed for more than 48 hours.
 
 ## CI/CD
 
@@ -279,8 +275,8 @@ YardWise will use version numbers such as v1.0.0 (major.minor.patch).
 - Confirm tests, linting, and required checks pass
 - Create a Git tag for the release (example: v1.2.0)
 - Record changes in `CHANGELOG.md`
-- Build and package the mobile app using Expo when ready
-- Publish the release through GitHub Releases. App store publishing will be added if needed
+- Build and verify the web application for release.
+- Publish the release through GitHub Releases. Web deployment procedures will be documented when configured.
 - If a release fails, return to the last working version and document the issue.
 
 Release procedures will be updated as the application and deployment process are developed.

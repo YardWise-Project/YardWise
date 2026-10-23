@@ -192,7 +192,7 @@ Future features may include:
 3. Implement and test the assigned feature.
 4. Commit changes with descriptive messages.
 5. Push the feature branch to GitHub.
-6. Open a pull request for team review before merging into `main`.
+6. Open a pull request and obtain approval from at least one teammate other than the author before merging into `main`.
 
 Example:
 
@@ -224,4 +224,4 @@ These checks help verify that the initial project setup and future changes compi
 https://github.com/YardWise-Project/YardWise
 
 ---
-
+For detailed branching, pull request approval, testing, and contribution requirements, see [CONTRIBUTING.md](CONTRIBUTING.md).
