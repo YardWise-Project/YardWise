@@ -6,6 +6,12 @@ YardWise uses React, Vite, and TypeScript for the web frontend; Node.js, Express
 
 This file provides guidelines for AI tools working in our repository.
 
+## Approved AI Tools
+
+ChatGPT
+Claude
+Gemini
+
 ## Project Guidelines
 
 AI tools should follow:
