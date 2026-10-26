@@ -1,10 +1,9 @@
 # RFC: Database Schema Design 
 Project 64: YardWise 
-Savhanna Beene  
-beenes@oregonstate.edu 
+
 | Field | Value | 
 | --- | --- | 
-| Author | Savhanna | 
+| Author | Savhanna Beene| 
 | Date | 2026-10-24 | 
 | Status | Proposed | 
 | Decision Date | (fill when decided) | 
