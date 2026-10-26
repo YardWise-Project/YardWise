@@ -146,8 +146,6 @@ The final platform recommendation is based on the team's current understanding o
 
 **Validation boundary:** The original RFC reports source-based evaluation, not hands-on prototype validation. No repository tests, CI checks, staging deployment, or rollback path are documented in the source. These must be recorded when they exist, rather than assumed complete.
 
-See the course [AI policy](https://capstone.alexulbrich.com/assignments/introduction/#ai-policy-applies-to-every-assignment).
-
 ## Decision
 
 **Status: Proposed.** The team has not yet recorded a final decision. After review, record whether the proposal was accepted, rejected, or superseded, the decision date, and the deciders. If superseded, link the replacement RFC in the header.
