@@ -1,5 +1,4 @@
 # RFC: Database Schema Design 
-Project 64: YardWise 
 
 | Field | Value | 
 | --- | --- | 
