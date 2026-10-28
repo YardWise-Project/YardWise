@@ -29,6 +29,7 @@ For paired work, each person should record their specific contribution.
 
 | Team Member | Contribution | Issue / PR / Evidence | Status |
 |---|---|---|---|
+| Savhanna | Set up GitHub Actions CI for backend and frontend, added Vitest API health test, and verified successful CI runs | PR # | In Progress |
 | | | | |
 
 ## Sprint 3
