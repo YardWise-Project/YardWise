@@ -16,8 +16,8 @@ This file provides guidelines for AI tools working in our repository.
 
 AI tools should follow:
 
-- `README.md` — Project overview and setup
-- `CONTRIBUTING.md` — Coding conventions, contribution requirements, testing, reviews, and Definition of Done
+- `docs/README.md` — Project overview and setup
+- `docs/CONTRIBUTING.md` — Coding conventions, contribution requirements, testing, reviews, and Definition of Done
 - `docs/WORKFLOW.md` — Accepted contributions and team progress
 
 Follow existing TypeScript conventions, keep changes focused, and avoid introducing unnecessary features or dependencies.
