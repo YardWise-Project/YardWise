@@ -1,0 +1,1 @@
+what the product must do and how you will know, with acceptance criteria for current priorities, the non-goals, the success metrics, and the open product questions. Updated as scope changes; git history is the change log. The requirements guideLinks to an external site. has the shape of a requirement a teammate can test.
