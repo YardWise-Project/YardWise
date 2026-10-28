@@ -1,27 +1,12 @@
-
-import express from 'express';
-import cors from 'cors';
 import 'dotenv/config';
+import app from './app.js';
 
-const app = express();
 const PORT = Number(process.env.PORT) || 8000;
 
-// Middleware
-app.use(cors({
-  origin: [
-    'http://localhost:5173',
-    'http://localhost:5174'
-  ]
-}));
-
-app.use(express.json());
-
-// Basic health check
-app.get('/api/health', (_req, res) => {
-  res.json({
-    status: 'ok',
-    message: 'YardWise backend is running'
-  });
+app.listen(PORT, () => {
+  console.log(
+    `YardWise backend running at http://localhost:${PORT}`
+  );
 });
 
 /*
@@ -37,7 +22,3 @@ app.get('/api/health', (_req, res) => {
  * - Reminder endpoints
  * - Error handling
  */
-
-app.listen(PORT, () => {
-  console.log(`YardWise backend running at http://localhost:${PORT}`);
-});

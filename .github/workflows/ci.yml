@@ -14,7 +14,7 @@ permissions:
 jobs:
   backend:
     name: Backend CI
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     defaults:
       run:
@@ -40,21 +40,18 @@ jobs:
       - name: Run lint
         run: npm run lint --if-present
 
-      - name: Run tests
-        shell: bash
+      - name: Test backend API
         run: |
-          if node -e "const t=require('./package.json').scripts?.test; process.exit(t && !t.includes('no test specified') ? 0 : 1)"; then
-            CI=true npm test
-          else
-            echo "No tests configured yet. Skipping."
-          fi
+          npm run dev &
+          npx wait-on --timeout 30000 http-get://127.0.0.1:8000/api/health
+          npx vitest run
 
       - name: Build backend
         run: npm run build --if-present
 
   frontend:
     name: Frontend CI
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     defaults:
       run:
