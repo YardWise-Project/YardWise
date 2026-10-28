@@ -22,40 +22,36 @@ The frontend, backend, and Supabase configuration have been initialized. Applica
 ## Project Structure
 
 ```text
+
 YardWise/
+├── .github/
+│   └── workflows/
+│       └── ci.yml
 ├── backend/
 │   ├── src/
 │   │   ├── config/
 │   │   │   └── supabase.ts
+│   │   ├── app.ts
 │   │   └── server.ts
+│   ├── tests/
+│   │   └── health.test.ts
 │   ├── package.json
 │   ├── package-lock.json
 │   └── tsconfig.json
-│
 ├── database/
 │   └── schema.sql
-│
 ├── docs/
-│
-│
 ├── web/
 │   ├── src/
-│   │   ├── components/
-│   │   │   └── Auth.tsx
-│   │   ├── lib/
-│   │   │   └── supabase.ts
-│   │   ├── App.tsx
-│   │   ├── App.css
-│   │   ├── index.css
-│   │   └── main.tsx
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
 │   └── vite.config.ts
-│
 ├── .env.example
 ├── .gitignore
+├── CONTRIBUTING.md
 └── README.md
+
 ```
 
 ## Getting Started
@@ -64,10 +60,10 @@ YardWise/
 
 Install the following before starting:
 
-- Node.js and npm
+- Node.js 22
+- npm
 - Git
-- Visual Studio Code or another code editor
-- Access to the Supabase project
+- Supabase
 
 ### 1. Clone the Repository
 
@@ -82,7 +78,7 @@ Navigate to the `web` directory:
 
 ```bash
 cd web
-npm install
+npm ci
 ```
 
 Create a file named `.env.local` inside `web/`:
@@ -109,7 +105,7 @@ Open another terminal from the repository root:
 
 ```bash
 cd backend
-npm install
+npm ci
 ```
 
 Create a `.env` file inside `backend/`:
@@ -215,7 +211,71 @@ cd backend
 npx tsc --noEmit
 ```
 
+Open a second terminal at the YardWise repository root. Keep the frontend running in the first terminal.
 These checks help verify that the initial project setup and future changes compile successfully.
+
+## Continuous Integration and Testing
+
+YardWise uses GitHub Actions to automatically check code changes whenever a pull request is opened or updated against `main`, and whenever changes are pushed to `main`.
+
+The CI workflow is located at `.github/workflows/ci.yml`.
+
+### Automated Checks
+
+The workflow performs the following checks:
+
+- **Backend:** Install dependencies, check TypeScript, run the automated API health test, and run the backend build if configured.
+- **Frontend:** Install dependencies, check TypeScript, run ESLint if configured, and build the React application.
+
+Both CI jobs must pass before a pull request can be merged into `main`. Pull requests also require approval from at least one teammate other than the author.
+
+### Run Backend Tests Locally
+
+Start the backend in one terminal:
+
+```bash
+cd backend
+npm ci
+npm run dev
+```
+
+Open a second terminal at the repository root:
+
+```bash
+cd backend
+npx vitest run
+```
+
+The API health test checks that `GET /api/health` responds successfully with a status of `ok`.
+
+The backend must be running on port `8000` for this test to work.
+
+### Run Frontend Checks Locally
+
+From the repository root:
+
+```bash
+cd web
+npm ci
+npm run lint
+npm run build
+```
+
+### CI Failure Verification
+
+The CI workflow has been tested by deliberately changing the backend health endpoint to return an incorrect status. The backend test failed as expected, demonstrating that CI detects broken application behavior.
+
+After restoring the correct response, the automated checks passed again.
+
+### Pull Request Requirements
+
+Before merging into `main`:
+
+1. Backend CI must pass.
+2. Frontend CI must pass.
+3. At least one teammate other than the author must approve the pull request.
+
+Do not merge code with failing required checks.
 
 ## Repository
 
