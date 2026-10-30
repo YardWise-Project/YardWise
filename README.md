@@ -43,6 +43,14 @@ YardWise/
 ├── docs/
 ├── web/
 │   ├── src/
+│   │   ├── components/
+│   │   │   └── Auth.jsx
+│   │   ├── lib/
+│   │   │   └── App.jsx
+│   │   │   └── main.jsx
+│   │   │   └── index.css
+│   │   │   └── main.jsx
+│   │   │   └── App.css
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
