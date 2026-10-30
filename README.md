@@ -12,8 +12,8 @@ The frontend, backend, and Supabase configuration have been initialized. Applica
 
 | Component | Technology |
 |---|---|
-| Web Frontend | React, TypeScript, Vite |
-| Backend | Node.js, Express.js, TypeScript |
+| Web Frontend | React, JavaScript, Vite |
+| Backend | Node.js, Express.js, JavaScript |
 | Database | Supabase PostgreSQL |
 | Authentication | Supabase Auth (planned) |
 | File Storage | Supabase Storage (planned) |
@@ -30,11 +30,11 @@ YardWise/
 ├── backend/
 │   ├── src/
 │   │   ├── config/
-│   │   │   └── supabase.ts
-│   │   ├── app.ts
-│   │   └── server.ts
+│   │   │   └── supabase.js
+│   │   ├── app.js
+│   │   └── server.js
 │   ├── tests/
-│   │   └── health.test.ts
+│   │   └── health.test.js
 │   ├── package.json
 │   ├── package-lock.json
 │   └── tsconfig.json
@@ -46,7 +46,7 @@ YardWise/
 │   ├── index.html
 │   ├── package.json
 │   ├── package-lock.json
-│   └── vite.config.ts
+│   └── vite.config.js
 ├── .env.example
 ├── .gitignore
 ├── CONTRIBUTING.md
@@ -152,7 +152,7 @@ Supabase credentials and environment configuration must be set up locally.
 |---|---|
 | React frontend initialization | Complete |
 | Express backend initialization | Complete |
-| TypeScript configuration | Complete |
+| JavaScript configuration | Complete |
 | Supabase client configuration | Complete |
 | Initial database setup | Complete |
 | Authentication | Placeholder |
