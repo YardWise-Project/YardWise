@@ -19,48 +19,6 @@ The frontend, backend, and Supabase configuration have been initialized. Applica
 | File Storage | Supabase Storage (planned) |
 | Version Control | Git and GitHub |
 
-## Project Structure
-
-```text
-
-YardWise/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   │   └── supabase.js
-│   │   ├── app.js
-│   │   └── server.js
-│   ├── tests/
-│   │   └── health.test.js
-│   ├── package.json
-│   ├── package-lock.json
-│   └── tsconfig.json
-├── database/
-│   └── schema.sql
-├── docs/
-├── web/
-│   ├── src/
-│   │   ├── components/
-│   │   │   └── Auth.jsx
-│   │   ├── lib/
-│   │   │   └── App.jsx
-│   │   │   └── main.jsx
-│   │   │   └── index.css
-│   │   │   └── main.jsx
-│   │   │   └── App.css
-│   ├── index.html
-│   ├── package.json
-│   ├── package-lock.json
-│   └── vite.config.js
-├── .env.example
-├── .gitignore
-├── CONTRIBUTING.md
-└── README.md
-
-```
 
 ## Getting Started
 
