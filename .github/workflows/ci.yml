@@ -2,8 +2,6 @@
 name: YardWise CI
 
 on:
-  push:
-    branches: [main, feature/convert-ts-to-js]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -37,23 +35,11 @@ jobs:
       - name: Run lint
         run: npm run lint --if-present
 
-      - name: Start backend
-        run: |
-          npm run start > server.log 2>&1 &
-          echo $! > server.pid
-
-      - name: Wait for backend
-        run: npx wait-on --timeout 30000 http-get://127.0.0.1:8000/api/health
-
       - name: Test backend API
-        run: npm test
-
-      - name: Stop backend
-        if: always()
         run: |
-          if [ -f server.pid ]; then
-            kill "$(cat server.pid)" 2>/dev/null || true
-          fi
+          npm run start &
+          npx wait-on --timeout 30000 http-get://127.0.0.1:8000/api/health
+          npm test
 
   frontend:
     name: Frontend CI
