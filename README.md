@@ -12,8 +12,8 @@ The frontend, backend, and Supabase configuration have been initialized. Applica
 
 | Component | Technology |
 |---|---|
-| Web Frontend | React, TypeScript, Vite |
-| Backend | Node.js, Express.js, TypeScript |
+| Web Frontend | React, JavaScript, Vite |
+| Backend | Node.js, Express.js, JavaScript |
 | Database | Supabase PostgreSQL |
 | Authentication | Supabase Auth (planned) |
 | File Storage | Supabase Storage (planned) |
