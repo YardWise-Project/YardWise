@@ -19,40 +19,6 @@ The frontend, backend, and Supabase configuration have been initialized. Applica
 | File Storage | Supabase Storage (planned) |
 | Version Control | Git and GitHub |
 
-## Project Structure
-
-```text
-
-YardWise/
-├── .github/
-│   └── workflows/
-│       └── ci.yml
-├── backend/
-│   ├── src/
-│   │   ├── config/
-│   │   │   └── supabase.ts
-│   │   ├── app.ts
-│   │   └── server.ts
-│   ├── tests/
-│   │   └── health.test.ts
-│   ├── package.json
-│   ├── package-lock.json
-│   └── tsconfig.json
-├── database/
-│   └── schema.sql
-├── docs/
-├── web/
-│   ├── src/
-│   ├── index.html
-│   ├── package.json
-│   ├── package-lock.json
-│   └── vite.config.ts
-├── .env.example
-├── .gitignore
-├── CONTRIBUTING.md
-└── README.md
-
-```
 
 ## Getting Started
 
@@ -152,7 +118,7 @@ Supabase credentials and environment configuration must be set up locally.
 |---|---|
 | React frontend initialization | Complete |
 | Express backend initialization | Complete |
-| TypeScript configuration | Complete |
+| JavaScript configuration | Complete |
 | Supabase client configuration | Complete |
 | Initial database setup | Complete |
 | Authentication | Placeholder |
