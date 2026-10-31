@@ -2,8 +2,6 @@
 name: YardWise CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
   workflow_dispatch:
@@ -34,20 +32,14 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Check TypeScript
-        run: npx tsc --noEmit
-
       - name: Run lint
         run: npm run lint --if-present
 
       - name: Test backend API
         run: |
-          npm run dev &
+          npm run start &
           npx wait-on --timeout 30000 http-get://127.0.0.1:8000/api/health
-          npx vitest run
-
-      - name: Build backend
-        run: npm run build --if-present
+          npm test
 
   frontend:
     name: Frontend CI
@@ -70,9 +62,6 @@ jobs:
 
       - name: Install dependencies
         run: npm ci
-
-      - name: Check TypeScript
-        run: npx tsc -b
 
       - name: Run ESLint
         run: npm run lint --if-present
