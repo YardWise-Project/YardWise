@@ -243,6 +243,26 @@ Before merging into `main`:
 
 Do not merge code with failing required checks.
 
+## Staging and Rollback Plan
+
+### Staging / Testing Environment
+
+Before changes reach production, the team will test frontend and backend changes in the local development environment.
+
+GitHub Actions will run automated tests and build checks on pull requests. Changes involving database schemas, authentication, migrations, or deployment will require teammate review before merging into `main`.
+
+**Target date:** 2026-10-31
+
+### Rollback Strategy
+
+If a change introduces a bug or breaks existing functionality, the team will revert the commit through a reviewed pull request.
+
+After reverting the change, automated CI checks will be rerun to verify that the application works correctly.
+
+If a deployed version fails, the team will restore the last known working version. Database changes will require a separate recovery procedure to prevent data loss.
+
+**Target date:** 2026-10-31
+
 ## Repository
 
 https://github.com/YardWise-Project/YardWise
