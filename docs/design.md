@@ -64,6 +64,9 @@ These future tables are not required for the initial implementation.
 - Development, testing, and production environments will be separated to support reliable updates.
 - Database migrations will manage changes to the YardWise data structure.
 - Deployment procedures will include backups and rollback options to reduce the risk of data loss or application downtime.
+- Production Target for Fall: Our walking skeleton will handle basic requests to our backend API and these requests will be handled using a basic frontend web application. An example of this would be a user wanting to create a project (garden) and adding a plant to it. The types of requests handled will be GET, POST, PATCH, DELETE on these, and when requested, the web app can display accurately a user’s information about their projects that has been retrieved.
+
+
 
 ## Open Questions
 
