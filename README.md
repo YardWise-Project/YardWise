@@ -190,8 +190,8 @@ The CI workflow is located at `.github/workflows/ci.yml`.
 
 The workflow performs the following checks:
 
-- **Backend:** Install dependencies, check TypeScript, run the automated API health test, and run the backend build if configured.
-- **Frontend:** Install dependencies, check TypeScript, run ESLint if configured, and build the React application.
+- **Backend:** Install dependencies, check JavaScript, run the automated health test, and run the backend build if configured.
+- **Frontend:** Install dependencies, check JavaScript, run ESLint if configured, and build the React application.
 
 Both CI jobs must pass before a pull request can be merged into `main`. Pull requests also require approval from at least one teammate other than the author.
 
