@@ -19,7 +19,6 @@ The frontend, backend, and Supabase configuration have been initialized. Applica
 | File Storage | Supabase Storage (planned) |
 | Version Control | Git and GitHub |
 
-
 ## Getting Started
 
 ### Prerequisites
@@ -40,12 +39,13 @@ cd YardWise
 
 ### 2. Set Up the Frontend
 
-Navigate to the `web` directory:
+Install shared dependencies from the repository root:
 
 ```bash
-cd web
 npm ci
 ```
+
+The frontend and backend share the root `package.json` and `package-lock.json`.
 
 Create a file named `.env.local` inside `web/`:
 
@@ -57,24 +57,21 @@ VITE_API_BASE_URL=http://localhost:8000
 
 Replace the placeholder values with the team's Supabase project configuration.
 
-Start the development server:
+Start the frontend development server from the repository root:
 
 ```bash
-npm run dev
+npx vite --config web/vite.config.ts
 ```
 
 Open the local URL displayed in your terminal, typically `http://localhost:5173` or `http://localhost:5174`.
 
 ### 3. Set Up the Backend
 
-Open another terminal from the repository root:
+Open another terminal from the repository root.
 
-```bash
-cd backend
-npm ci
-```
+Backend source code is located in `server/`. Dependencies are already installed from the root.
 
-Create a `.env` file inside `backend/`:
+Create a `.env` file at the repository root, provided this matches the backend's dotenv configuration:
 
 ```dotenv
 SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
@@ -82,10 +79,10 @@ SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 PORT=8000
 ```
 
-Start the Express development server:
+Start the Express server:
 
 ```bash
-npm run dev
+npm run start
 ```
 
 The backend should be available at:
@@ -129,7 +126,6 @@ Supabase credentials and environment configuration must be set up locally.
 | Landscaping projects | Not implemented |
 | Budget tracking | Not implemented |
 | Maintenance reminders | Not implemented |
-| Mobile application | Not implemented |
 
 ## Planned Features
 
@@ -163,26 +159,33 @@ git checkout -b feature/authentication
 
 ## Build and Type Checking
 
-Frontend:
+Run checks from the repository root.
+
+Frontend lint:
 
 ```bash
-cd web
+npm run lint
+```
+
+Frontend build:
+
+```bash
 npm run build
 ```
 
-Backend:
+Backend tests:
 
 ```bash
-cd backend
-npx tsc --noEmit
+npm run test
 ```
 
-Open a second terminal at the YardWise repository root. Keep the frontend running in the first terminal.
-These checks help verify that the initial project setup and future changes compile successfully.
+The backend must be running for the current API health-check test.
+
+These checks help verify that the project builds and that existing tests pass.
 
 ## Continuous Integration and Testing
 
-YardWise uses GitHub Actions to automatically check code changes whenever a pull request is opened or updated against `main`, and whenever changes are pushed to `main`.
+YardWise uses GitHub Actions to automatically check code changes whenever a pull request is opened or updated against `main`. The workflow can also be started manually.
 
 The CI workflow is located at `.github/workflows/ci.yml`.
 
@@ -190,8 +193,8 @@ The CI workflow is located at `.github/workflows/ci.yml`.
 
 The workflow performs the following checks:
 
-- **Backend:** Install dependencies, check JavaScript, run the automated health test, and run the backend build if configured.
-- **Frontend:** Install dependencies, check JavaScript, run ESLint if configured, and build the React application.
+- **Backend:** Install shared root dependencies, run lint checks, start the Express server, wait for the health endpoint, and run backend tests.
+- **Frontend:** Install shared root dependencies, run ESLint, and build the React application.
 
 Both CI jobs must pass before a pull request can be merged into `main`. Pull requests also require approval from at least one teammate other than the author.
 
@@ -200,16 +203,13 @@ Both CI jobs must pass before a pull request can be merged into `main`. Pull req
 Start the backend in one terminal:
 
 ```bash
-cd backend
-npm ci
-npm run dev
+npm run start
 ```
 
 Open a second terminal at the repository root:
 
 ```bash
-cd backend
-npx vitest run
+npm run test
 ```
 
 The API health test checks that `GET /api/health` responds successfully with a status of `ok`.
@@ -221,8 +221,6 @@ The backend must be running on port `8000` for this test to work.
 From the repository root:
 
 ```bash
-cd web
-npm ci
 npm run lint
 npm run build
 ```
@@ -268,4 +266,5 @@ If a deployed version fails, the team will restore the last known working versio
 https://github.com/YardWise-Project/YardWise
 
 ---
+
 For detailed branching, pull request approval, testing, and contribution requirements, see [CONTRIBUTING.md](CONTRIBUTING.md).
