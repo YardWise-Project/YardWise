@@ -1,14 +1,17 @@
 # Changelog
 
-All big changes to YardWise are documented in this file.
-
-## [Unreleased]
+All major changes to YardWise are documented in this file.
 
 ### Added
-- Initial repository structure for mobile, backend, and database development.
-- README with project overview and planned features.
-- CONTRIBUTING
-- Team contribution tracking in `docs/WORKFLOW.md`.
+- Initial repository structure for frontend, backend, and database development.
+- React frontend with Vite, JavaScript (JSX), and Tailwind CSS v4.
+- Express backend with API route skeletons for planned application features.
+- Supabase configuration for frontend and backend.
+- Backend health-check endpoint and automated testing with Vitest.
+- Simplified development commands using `npm ci`, `npm run dev`, and `npm run check`.
+- GitHub Actions workflow for automated testing and build verification.
+- README with project overview and setup instructions.
+- CONTRIBUTING.md with team development guidelines.
 
 ## Example Release Format
 

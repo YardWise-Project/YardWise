@@ -1,1 +1,22 @@
-/* YardWise */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #3B5140;
+  --color-secondary: #788F73;
+  --color-accent: #BB7B5F;
+
+  --color-background: #FAFAF8;
+  --color-surface: #F3F2EE;
+  --color-text: #37383C;
+  --color-text-light: #FFFFFF;
+
+  --font-sans: "Roboto Condensed", sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+}

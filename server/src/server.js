@@ -1,12 +1,11 @@
-import 'dotenv/config';
-import app from './app.js';
+
+import "dotenv/config";
+import app from "./app.js";
 
 const PORT = Number(process.env.PORT) || 8000;
 
 app.listen(PORT, () => {
-  console.log(
-    `YardWise backend running at http://localhost:${PORT}`
-  );
+  console.log(`YardWise backend running at http://localhost:${PORT}`);
 });
 
 /*
