@@ -18,10 +18,14 @@
     "doc": "docs"
   },
   "scripts": {
+    "dev": "concurrently \"npm:start\" \"npm:dev:frontend\"",
+    "dev:frontend": "vite web",
     "start": "node server/src/server.js",
     "test": "vitest run server/tests",
     "lint": "eslint web",
-    "build": "vite build web"
+    "build": "vite build web",
+    "test:backend": "wait-on http://127.0.0.1:8000/api/health && npm test",
+    "check": "npm run lint && npm run build && concurrently --kill-others --success first \"npm start\" \"npm run test:backend\""
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.119.0",
@@ -45,6 +49,7 @@
   "devDependencies": {
     "@eslint/js": "^10.0.1",
     "@vitejs/plugin-react": "^6.2.1",
+    "concurrently": "^10.0.7",
     "eslint": "^10.14.0",
     "eslint-plugin-react-hooks": "^7.1.1",
     "eslint-plugin-react-refresh": "^0.5.7",
