@@ -12,7 +12,7 @@ The frontend, backend, and Supabase configuration have been initialized. Applica
 
 | Component | Technology |
 |---|---|
-| Web Frontend | React, JavaScript, Vite |
+| Web Frontend | React, JavaScript (JSX), Vite, Tailwind CSS v4 |
 | Backend | Node.js, Express.js, JavaScript |
 | Database | Supabase PostgreSQL |
 | Authentication | Supabase Auth (planned) |
@@ -28,7 +28,7 @@ Install the following before starting:
 - Node.js 22
 - npm
 - Git
-- Supabase
+- Supabase project access
 
 ### 1. Clone the Repository
 
@@ -37,15 +37,17 @@ git clone https://github.com/YardWise-Project/YardWise.git
 cd YardWise
 ```
 
-### 2. Set Up the Frontend
+### 2. Install Dependencies
 
-Install shared dependencies from the repository root:
+From the repository root:
 
 ```bash
 npm ci
 ```
 
 The frontend and backend share the root `package.json` and `package-lock.json`.
+
+### 3. Configure Environment Variables
 
 Create a file named `.env.local` inside `web/`:
 
@@ -55,23 +57,7 @@ VITE_SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 VITE_API_BASE_URL=http://localhost:8000
 ```
 
-Replace the placeholder values with the team's Supabase project configuration.
-
-Start the frontend development server from the repository root:
-
-```bash
-npx vite --config web/vite.config.ts
-```
-
-Open the local URL displayed in your terminal, typically `http://localhost:5173` or `http://localhost:5174`.
-
-### 3. Set Up the Backend
-
-Open another terminal from the repository root.
-
-Backend source code is located in `server/`. Dependencies are already installed from the root.
-
-Create a `.env` file at the repository root, provided this matches the backend's dotenv configuration:
+Create a `.env` file at the repository root:
 
 ```dotenv
 SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
@@ -79,29 +65,54 @@ SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 PORT=8000
 ```
 
-Start the Express server:
+Replace the placeholder values with the team's Supabase project configuration.
+
+The backend uses `dotenv/config`, which reads the root `.env` file when started from the repository root.
+
+### 4. Start YardWise
+
+From the repository root:
 
 ```bash
-npm run start
+npm run dev
 ```
 
-The backend should be available at:
+This automatically starts both the React frontend and Express backend using `concurrently`.
 
-`http://localhost:8000`
+| Service | Local URL |
+|---|---|
+| React frontend | http://localhost:5173 |
+| Express backend | http://localhost:8000 |
+| Backend health check | http://localhost:8000/api/health |
 
-Health-check endpoint:
+Vite may use another available port, such as `5174`, if port `5173` is occupied.
 
-`http://localhost:8000/api/health`
+Press `Ctrl + C` to stop both servers.
 
-### 4. Supabase Setup
+### 5. Verify YardWise
+
+From the repository root:
+
+```bash
+npm run check
+```
+
+This command automatically:
+
+1. Runs frontend lint checks.
+2. Builds the React frontend.
+3. Starts the Express backend.
+4. Waits for the backend health endpoint.
+5. Runs backend tests.
+6. Stops the backend after testing.
+
+You do not need to start the backend manually before running this command.
+
+Make sure another development server is not already using port `8000`.
+
+### 6. Supabase Setup
 
 YardWise uses Supabase for its managed PostgreSQL database and planned authentication and storage functionality.
-
-The initial database setup includes:
-
-- `profiles` table
-- `properties` table
-- Initial Row Level Security policies
 
 The database schema is still in progress and needs team review.
 
@@ -116,8 +127,10 @@ Supabase credentials and environment configuration must be set up locally.
 | React frontend initialization | Complete |
 | Express backend initialization | Complete |
 | JavaScript configuration | Complete |
+| Tailwind CSS v4 configuration | Complete |
 | Supabase client configuration | Complete |
 | Initial database setup | Complete |
+| Backend API route skeletons | Complete |
 | Authentication | Placeholder |
 | Dashboard | Not implemented |
 | Property management | Not implemented |
@@ -157,31 +170,17 @@ git pull
 git checkout -b feature/authentication
 ```
 
-## Build and Type Checking
+## Build and Testing
 
-Run checks from the repository root.
-
-Frontend lint:
+Run the following command from the repository root:
 
 ```bash
-npm run lint
+npm run check
 ```
 
-Frontend build:
+This single command runs the configured frontend lint checks, frontend build, and backend tests.
 
-```bash
-npm run build
-```
-
-Backend tests:
-
-```bash
-npm run test
-```
-
-The backend must be running for the current API health-check test.
-
-These checks help verify that the project builds and that existing tests pass.
+The backend starts automatically for testing and stops when the tests finish.
 
 ## Continuous Integration and Testing
 
@@ -198,32 +197,17 @@ The workflow performs the following checks:
 
 Both CI jobs must pass before a pull request can be merged into `main`. Pull requests also require approval from at least one teammate other than the author.
 
-### Run Backend Tests Locally
-
-Start the backend in one terminal:
-
-```bash
-npm run start
-```
-
-Open a second terminal at the repository root:
-
-```bash
-npm run test
-```
-
-The API health test checks that `GET /api/health` responds successfully with a status of `ok`.
-
-The backend must be running on port `8000` for this test to work.
-
-### Run Frontend Checks Locally
+### Run Checks Locally
 
 From the repository root:
 
 ```bash
-npm run lint
-npm run build
+npm run check
 ```
+
+The command runs linting, building, and backend testing automatically.
+
+The API health test checks that `GET /api/health` responds successfully with a status of `ok`.
 
 ### CI Failure Verification
 
@@ -249,7 +233,6 @@ Before changes reach production, the team will test frontend and backend changes
 
 GitHub Actions will run automated tests and build checks on pull requests. Changes involving database schemas, authentication, migrations, or deployment will require teammate review before merging into `main`.
 
-**Target date:** 2026-10-31
 
 ### Rollback Strategy
 
@@ -259,7 +242,6 @@ After reverting the change, automated CI checks will be rerun to verify that the
 
 If a deployed version fails, the team will restore the last known working version. Database changes will require a separate recovery procedure to prevent data loss.
 
-**Target date:** 2026-10-31
 
 ## Repository
 
